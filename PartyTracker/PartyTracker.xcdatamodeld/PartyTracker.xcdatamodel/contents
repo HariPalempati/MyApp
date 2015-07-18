@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Guest" syncable="YES"/>
+    <entity name="Party" representedClassName="Party" syncable="YES">
+        <attribute name="partyGuests" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="partyLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyTime" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Party" positionX="261" positionY="198" width="128" height="105"/>
+        <element name="Guest" positionX="270" positionY="207" width="128" height="45"/>
+    </elements>
+</model>
