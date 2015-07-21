@@ -13,12 +13,13 @@
 
 @interface FBLoginViewController () {
     
-   // FBSDKLoginButton * loginButton;
-    FBLoginView * loginButton;
+    //FBSDKLoginButton * loginButton;
+     FBLoginView * loginButton;
     UILabel * labelLoginStatus;
     FBProfilePictureView * profilePicture;
     UILabel * labelUsername;
     UILabel * labelEmail;
+    UIButton * Friends;
 }
 
 @end
@@ -43,41 +44,54 @@
     loginButton.delegate = self;
     [self.view addSubview:loginButton];
     
-    labelLoginStatus = [[UILabel alloc]initWithFrame:CGRectMake(20, 70, 280, 25)];
+    labelLoginStatus = [[UILabel alloc]initWithFrame:CGRectMake(50, 70, 280, 25)];
     [self.view addSubview:labelLoginStatus];
     //[labelLoginStatus setText:@"LoginStatus"];
     [labelLoginStatus setTextAlignment:NSTextAlignmentCenter];
+    [labelLoginStatus setTextColor:[UIColor redColor]];
     
     profilePicture = [[FBProfilePictureView alloc]initWithFrame:CGRectMake(120, 100, 150, 150)];
     [self.view addSubview:profilePicture];
     
-    labelUsername = [[UILabel alloc]initWithFrame:CGRectMake(20, 260, 280, 25)];
+    labelUsername = [[UILabel alloc]initWithFrame:CGRectMake(50, 260, 280, 25)];
     [self.view addSubview:labelUsername];
     //[labelUsername setText:@"username"];
     [labelUsername setTextAlignment:NSTextAlignmentCenter];
+    [labelUsername setTextColor:[UIColor blueColor]];
     
     labelEmail = [[UILabel alloc]initWithFrame:CGRectMake(20, 290, 280, 25)];
     [self.view addSubview:labelEmail];
     //[labelEmail setText:@"email"];
     [labelEmail setTextAlignment:NSTextAlignmentCenter];
     
+    Friends = [[UIButton alloc]initWithFrame:CGRectMake(50, 330, 280, 25)];
+    [Friends setTitle:@"Get Friends" forState:UIControlStateNormal];
+    [Friends setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [self.view addSubview:Friends];
+    
     [self toggleHiddenState:YES];
     
     self->loginButton.readPermissions = @[@"public_profile", @"email"];
+    
+//    [self loginViewShowingLoggedInUser:loginButton];
+//    [self loginViewShowingLoggedInUser:loginButton];
+//    [self loginViewFetchedUserInfo:loginButton user:user];
+    
 }
-
 
 -(void)toggleHiddenState:(BOOL)shouldHide{
 
     labelUsername.hidden = shouldHide;
     labelEmail.hidden = shouldHide;
     profilePicture.hidden = shouldHide;
+    Friends.hidden = shouldHide;
 //    self.labelUsername.hidden = shouldHide;
 //    self.labelEmail.hidden = shouldHide;
 //    self.profilePicture.hidden = shouldHide;
 }
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
+  
     labelLoginStatus.text = @"You are logged in.";
     
     [self toggleHiddenState:NO];
