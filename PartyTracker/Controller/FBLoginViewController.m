@@ -8,8 +8,18 @@
 
 #import "FBLoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface FBLoginViewController ()
+@interface FBLoginViewController () {
+    
+   // FBSDKLoginButton * loginButton;
+    FBLoginView * loginButton;
+    UILabel * labelLoginStatus;
+    FBProfilePictureView * profilePicture;
+    UILabel * labelUsername;
+    UILabel * labelEmail;
+}
 
 @end
 
@@ -23,19 +33,83 @@
       //  [FBProfilePictureView class];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    [self toggleHiddenState:YES];
-    self.labelLoginStatus.text = @"";
+//    [self toggleHiddenState:YES];
+////    self.labelLoginStatus.text = @"";
+//    
+//    self->loginButton.readPermissions = @[@"public_profile", @"email"];
     
-    self.loginButton.readPermissions = @[@"public_profile", @"email"];
+    loginButton = [[FBLoginView alloc] initWithFrame:CGRectMake(100, 430, 200, 50)];
+    //loginButton.center = self.view.center;
+    loginButton.delegate = self;
+    [self.view addSubview:loginButton];
+    
+    labelLoginStatus = [[UILabel alloc]initWithFrame:CGRectMake(20, 70, 280, 25)];
+    [self.view addSubview:labelLoginStatus];
+    //[labelLoginStatus setText:@"LoginStatus"];
+    [labelLoginStatus setTextAlignment:NSTextAlignmentCenter];
+    
+    profilePicture = [[FBProfilePictureView alloc]initWithFrame:CGRectMake(120, 100, 150, 150)];
+    [self.view addSubview:profilePicture];
+    
+    labelUsername = [[UILabel alloc]initWithFrame:CGRectMake(20, 260, 280, 25)];
+    [self.view addSubview:labelUsername];
+    //[labelUsername setText:@"username"];
+    [labelUsername setTextAlignment:NSTextAlignmentCenter];
+    
+    labelEmail = [[UILabel alloc]initWithFrame:CGRectMake(20, 290, 280, 25)];
+    [self.view addSubview:labelEmail];
+    //[labelEmail setText:@"email"];
+    [labelEmail setTextAlignment:NSTextAlignmentCenter];
+    
+    [self toggleHiddenState:YES];
+    
+    self->loginButton.readPermissions = @[@"public_profile", @"email"];
 }
 
 
 -(void)toggleHiddenState:(BOOL)shouldHide{
-    
-    self.labelUsername.hidden = shouldHide;
-    self.labelEmail.hidden = shouldHide;
-    self.profilePicture.hidden = shouldHide;
+
+    labelUsername.hidden = shouldHide;
+    labelEmail.hidden = shouldHide;
+    profilePicture.hidden = shouldHide;
+//    self.labelUsername.hidden = shouldHide;
+//    self.labelEmail.hidden = shouldHide;
+//    self.profilePicture.hidden = shouldHide;
 }
+
+-(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
+    labelLoginStatus.text = @"You are logged in.";
+    
+    [self toggleHiddenState:NO];
+    
+    NSLog(@"Login");
+}
+
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
+    
+    NSLog(@"Fecth");
+    NSLog(@"%@", user);
+    self->profilePicture.profileID = user.id;
+    labelUsername.text = user.name;
+    labelEmail.text = [user objectForKey:@"email"];
+    
+    NSLog(@"INFO");
+}
+
+-(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
+    
+    labelLoginStatus.text = @"You are logged out";
+    
+    NSLog(@"Logout");
+    
+    [self toggleHiddenState:YES];
+}
+
+-(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error{
+    
+    NSLog(@"%@", [error localizedDescription]);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

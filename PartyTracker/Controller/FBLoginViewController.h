@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface FBLoginViewController : UIViewController
-@property (weak, nonatomic) IBOutlet FBLoginView *loginButton;
-@property (weak, nonatomic) IBOutlet UILabel *labelLoginStatus;
-@property (weak, nonatomic) IBOutlet UILabel *labelUsername;
-@property (weak, nonatomic) IBOutlet UILabel *labelEmail;
-@property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePicture;
+@interface FBLoginViewController : UIViewController<FBLoginViewDelegate>
+
+//@property (weak, nonatomic) IBOutlet FBLoginView *loginButton;
+//@property (weak, nonatomic) IBOutlet UILabel *labelLoginStatus;
+//@property (weak, nonatomic) IBOutlet UILabel *labelUsername;
+//@property (weak, nonatomic) IBOutlet UILabel *labelEmail;
+//@property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePicture;
+
 
 @end
