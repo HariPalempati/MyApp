@@ -212,6 +212,91 @@
             </objects>
             <point key="canvasLocation" x="1007" y="-1216"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ftf-gP-Ein">
+            <objects>
+                <viewController id="liJ-gh-QiF" customClass="FBLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uyH-cl-vZK"/>
+                        <viewControllerLayoutGuide type="bottom" id="nHW-EY-liL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RTZ-2U-xx7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brQ-uQ-RJO" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="60" y="430" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GxL-ea-szk"/>
+                                    <constraint firstAttribute="height" constant="50" id="wDF-Q4-JRu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAQ-zI-mYr">
+                                <rect key="frame" x="20" y="32" width="280" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="kU2-1m-BDC"/>
+                                    <constraint firstAttribute="width" constant="280" id="lqw-RQ-q6K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOA-La-K6b" customClass="FBProfilePictureView">
+                                <rect key="frame" x="85" y="61" width="150" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="vOV-rJ-rWz"/>
+                                    <constraint firstAttribute="width" constant="150" id="zll-R4-iRV"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m6-Lp-QG5">
+                                <rect key="frame" x="20" y="219" width="280" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Y1d-xm-O3f"/>
+                                    <constraint firstAttribute="width" constant="280" id="Y9Z-Gr-5HL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNz-Da-X66">
+                                <rect key="frame" x="20" y="248" width="280" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="2yC-a9-OZp"/>
+                                    <constraint firstAttribute="height" constant="25" id="uBz-iw-DS7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OAQ-zI-mYr" firstAttribute="leading" secondItem="RTZ-2U-xx7" secondAttribute="leading" constant="20" id="2hh-E1-AeK"/>
+                            <constraint firstItem="nNz-Da-X66" firstAttribute="leading" secondItem="RTZ-2U-xx7" secondAttribute="leading" constant="20" id="82X-mx-L1x"/>
+                            <constraint firstItem="bOA-La-K6b" firstAttribute="top" secondItem="RTZ-2U-xx7" secondAttribute="top" constant="61" id="8VM-M8-r63"/>
+                            <constraint firstItem="brQ-uQ-RJO" firstAttribute="leading" secondItem="RTZ-2U-xx7" secondAttribute="leading" constant="60" id="9PJ-zV-Y3G"/>
+                            <constraint firstItem="nNz-Da-X66" firstAttribute="top" secondItem="RTZ-2U-xx7" secondAttribute="top" constant="248" id="SRi-Vi-lqV"/>
+                            <constraint firstItem="brQ-uQ-RJO" firstAttribute="top" secondItem="RTZ-2U-xx7" secondAttribute="top" constant="430" id="cZM-Vk-aO3"/>
+                            <constraint firstItem="1m6-Lp-QG5" firstAttribute="top" secondItem="RTZ-2U-xx7" secondAttribute="top" constant="219" id="iSk-yz-bhQ"/>
+                            <constraint firstItem="1m6-Lp-QG5" firstAttribute="leading" secondItem="RTZ-2U-xx7" secondAttribute="leading" constant="20" id="l2H-HY-dca"/>
+                            <constraint firstItem="OAQ-zI-mYr" firstAttribute="top" secondItem="RTZ-2U-xx7" secondAttribute="top" constant="32" id="pTc-Xa-Cbo"/>
+                            <constraint firstItem="bOA-La-K6b" firstAttribute="leading" secondItem="RTZ-2U-xx7" secondAttribute="leading" constant="85" id="uZC-H8-gIq"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="labelEmail" destination="nNz-Da-X66" id="Yyq-d4-2sl"/>
+                        <outlet property="labelLoginStatus" destination="OAQ-zI-mYr" id="uDe-YD-6El"/>
+                        <outlet property="labelUsername" destination="1m6-Lp-QG5" id="jPn-Xb-fm7"/>
+                        <outlet property="loginButton" destination="brQ-uQ-RJO" id="WHY-fB-oAe"/>
+                        <outlet property="profilePicture" destination="bOA-La-K6b" id="zeC-51-C3o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2v5-6y-fQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="-1216"/>
+        </scene>
         <!--Guest Details-->
         <scene sceneID="naJ-Ra-X7U">
             <objects>

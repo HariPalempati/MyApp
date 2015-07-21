@@ -14,6 +14,12 @@
 		F142ADAE1B59B74800CCD53F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142ADAD1B59B74800CCD53F /* Foundation.framework */; };
 		F142ADB11B59B80F00CCD53F /* GuestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */; };
 		F19C74C91B5B16E2001BC031 /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = F19C74C81B5B16E2001BC031 /* Guest.m */; };
+		F19C76591B5E0341001BC031 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C76551B5E0341001BC031 /* FBSDKCoreKit.framework */; };
+		F19C765A1B5E0341001BC031 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C76561B5E0341001BC031 /* FBSDKLoginKit.framework */; };
+		F19C765B1B5E0341001BC031 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C76571B5E0341001BC031 /* FBSDKMessengerShareKit.framework */; };
+		F19C765C1B5E0341001BC031 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C76581B5E0341001BC031 /* FBSDKShareKit.framework */; };
+		F19C77F11B5E0B07001BC031 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */; };
+		F19C77F31B5E0E95001BC031 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */; };
 		F1A6AD3C1B597051005C4645 /* ListOfPartiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */; };
 		F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3E1B5970B8005C4645 /* PartyDetailsViewController.m */; };
 		F1A6AD421B597456005C4645 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD411B597456005C4645 /* Party.m */; };
@@ -46,6 +52,13 @@
 		F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuestTableViewController.m; path = Controller/GuestTableViewController.m; sourceTree = "<group>"; };
 		F19C74C71B5B16E2001BC031 /* Guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Guest.h; path = Model/Guest.h; sourceTree = "<group>"; };
 		F19C74C81B5B16E2001BC031 /* Guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Guest.m; path = Model/Guest.m; sourceTree = "<group>"; };
+		F19C76551B5E0341001BC031 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F19C76561B5E0341001BC031 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F19C76571B5E0341001BC031 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		F19C76581B5E0341001BC031 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F19C77EF1B5E0B07001BC031 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLoginViewController.h; path = Controller/FBLoginViewController.h; sourceTree = "<group>"; };
+		F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLoginViewController.m; path = Controller/FBLoginViewController.m; sourceTree = "<group>"; };
+		F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		F1A6AD3A1B597051005C4645 /* ListOfPartiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfPartiesTableViewController.h; path = Controller/ListOfPartiesTableViewController.h; sourceTree = "<group>"; };
 		F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfPartiesTableViewController.m; path = Controller/ListOfPartiesTableViewController.m; sourceTree = "<group>"; };
 		F1A6AD3D1B5970B8005C4645 /* PartyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyDetailsViewController.h; path = Controller/PartyDetailsViewController.h; sourceTree = "<group>"; };
@@ -72,8 +85,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F142ADAE1B59B74800CCD53F /* Foundation.framework in Frameworks */,
+				F19C77F31B5E0E95001BC031 /* FacebookSDK.framework in Frameworks */,
+				F19C76591B5E0341001BC031 /* FBSDKCoreKit.framework in Frameworks */,
 				F142ADAB1B59B34900CCD53F /* CoreData.framework in Frameworks */,
 				F142ADAC1B59B34900CCD53F /* CoreFoundation.framework in Frameworks */,
+				F19C765B1B5E0341001BC031 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				F19C765C1B5E0341001BC031 /* FBSDKShareKit.framework in Frameworks */,
+				F19C765A1B5E0341001BC031 /* FBSDKLoginKit.framework in Frameworks */,
 				F142ADA71B59B33A00CCD53F /* AddressBook.framework in Frameworks */,
 				F142ADA81B59B33A00CCD53F /* AddressBookUI.framework in Frameworks */,
 			);
@@ -92,11 +110,16 @@
 		F1B411061B5961BA00C676E6 = {
 			isa = PBXGroup;
 			children = (
+				F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */,
 				F142ADAD1B59B74800CCD53F /* Foundation.framework */,
 				F142ADA91B59B34900CCD53F /* CoreData.framework */,
 				F142ADAA1B59B34900CCD53F /* CoreFoundation.framework */,
 				F142ADA51B59B33A00CCD53F /* AddressBook.framework */,
 				F142ADA61B59B33A00CCD53F /* AddressBookUI.framework */,
+				F19C76551B5E0341001BC031 /* FBSDKCoreKit.framework */,
+				F19C76561B5E0341001BC031 /* FBSDKLoginKit.framework */,
+				F19C76571B5E0341001BC031 /* FBSDKMessengerShareKit.framework */,
+				F19C76581B5E0341001BC031 /* FBSDKShareKit.framework */,
 				F1B411111B5961BA00C676E6 /* PartyTracker */,
 				F1B411311B5961BB00C676E6 /* PartyTrackerTests */,
 				F1B411101B5961BA00C676E6 /* Products */,
@@ -174,6 +197,8 @@
 				F1A6AD3E1B5970B8005C4645 /* PartyDetailsViewController.m */,
 				F142ADAF1B59B80F00CCD53F /* GuestTableViewController.h */,
 				F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */,
+				F19C77EF1B5E0B07001BC031 /* FBLoginViewController.h */,
+				F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -291,6 +316,7 @@
 				F19C74C91B5B16E2001BC031 /* Guest.m in Sources */,
 				F142ADB11B59B80F00CCD53F /* GuestTableViewController.m in Sources */,
 				F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */,
+				F19C77F11B5E0B07001BC031 /* FBLoginViewController.m in Sources */,
 				F1A6AD3C1B597051005C4645 /* ListOfPartiesTableViewController.m in Sources */,
 				F1B411151B5961BA00C676E6 /* main.m in Sources */,
 				F1B4111B1B5961BB00C676E6 /* PartyTracker.xcdatamodeld in Sources */,
@@ -421,6 +447,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gabriel/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = PartyTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +463,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gabriel/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = PartyTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

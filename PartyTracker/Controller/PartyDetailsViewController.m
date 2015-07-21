@@ -9,6 +9,7 @@
 #import "PartyDetailsViewController.h"
 #import "Party.h"
 #import "GuestTableViewController.h"
+#import "FBLoginViewController.h"
 
 @interface PartyDetailsViewController () {
     
@@ -132,6 +133,15 @@
         peoplePicker = [[ABPeoplePickerNavigationController alloc]init];
         peoplePicker.peoplePickerDelegate = self;
         [self presentViewController:peoplePicker animated:YES completion:nil];
+    }
+    
+    if (buttonIndex == 1) {
+        
+        NSLog(@"Facebook");
+        
+        FBLoginViewController * fb = [[FBLoginViewController alloc]init];
+        
+        [self.navigationController pushViewController:fb animated:YES];
     }
 }
 
