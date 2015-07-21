@@ -8,16 +8,20 @@
 
 #import "PartyDetailsViewController.h"
 #import "Party.h"
+#import "GuestTableViewController.h"
 
 @interface PartyDetailsViewController () {
     
     double stepValue;
 }
 
+@property (nonatomic, copy) GuestTableViewController * aReference1;
+
 @end
 
 @implementation PartyDetailsViewController
 
+@synthesize aReference1 = _aReference1;
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -39,6 +43,11 @@
         [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];
         //[self.labelGuests setText:[self.party valueForKey:@"partyGuests"]];
         //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+    }
+    
+    if (self.guest) {
+        
+        [self.aReference1.labelGuest setText:[self.guest valueForKey:@"guestName"]];
     }
 }
 
@@ -96,7 +105,7 @@
     }
     
     NSLog(@"dismiss reached");
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     //[self popoverPresentationController];
     
     //[self]
@@ -136,6 +145,43 @@
     [_Guests addObject:name];
     
     NSLog(@"Guests Count: %lu",(unsigned long)[_Guests count]);
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (self.guest) {
+        
+        NSLog(@"setting existing guest");
+        [self.aReference1.labelGuest setText:[self.party valueForKey:@"guestName"]];
+//        [self.textName setText:[self.party valueForKey:@"partyName"]];
+//        [self.textTime setText:[self.party valueForKey:@"partyTime"]];
+//        [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];
+//        //[self.labelGuests setText:[self.party valueForKey:@"partyGuests"]];
+        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+    }
+    else {
+        
+        // Create a new managed object
+        NSManagedObject * managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:context];
+        [managedObject setValue:self.aReference1.labelGuest.text forKey:@"guestName"];
+//        [managedObject setValue:self.textName.text forKey:@"partyName"];
+//        [managedObject setValue:self.textTime.text forKey:@"partyTime"];
+//        [managedObject setValue:self.textLocation.text forKey:@"partyLocation"];
+        // [managedObject setValue:self.labelGuests forKey:@"partyGuests"];
+        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+        // [managedObject setValue:[NSString stringWithFormat:@"%f", stepValue ] forKey:@"partyGuests"];
+        
+    }
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    NSLog(@"dismiss reached");
+    
+    GuestTableViewController * gc = [[GuestTableViewController alloc]init];
+    
+    [self.navigationController pushViewController:gc animated:YES];
     
 }
 

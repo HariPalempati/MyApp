@@ -25,6 +25,7 @@
 
 @property (nonatomic , retain) NSMutableArray * Guests;
 @property (strong) NSManagedObject * party;
+@property (strong) NSManagedObject * guest;
 
 - (IBAction)stepperClicked:(id)sender;
 - (IBAction)saveParty:(id)sender;

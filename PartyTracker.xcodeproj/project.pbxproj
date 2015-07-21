@@ -13,6 +13,7 @@
 		F142ADAC1B59B34900CCD53F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142ADAA1B59B34900CCD53F /* CoreFoundation.framework */; };
 		F142ADAE1B59B74800CCD53F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142ADAD1B59B74800CCD53F /* Foundation.framework */; };
 		F142ADB11B59B80F00CCD53F /* GuestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */; };
+		F19C74C91B5B16E2001BC031 /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = F19C74C81B5B16E2001BC031 /* Guest.m */; };
 		F1A6AD3C1B597051005C4645 /* ListOfPartiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */; };
 		F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3E1B5970B8005C4645 /* PartyDetailsViewController.m */; };
 		F1A6AD421B597456005C4645 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD411B597456005C4645 /* Party.m */; };
@@ -43,6 +44,8 @@
 		F142ADAD1B59B74800CCD53F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F142ADAF1B59B80F00CCD53F /* GuestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuestTableViewController.h; path = Controller/GuestTableViewController.h; sourceTree = "<group>"; };
 		F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuestTableViewController.m; path = Controller/GuestTableViewController.m; sourceTree = "<group>"; };
+		F19C74C71B5B16E2001BC031 /* Guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Guest.h; path = Model/Guest.h; sourceTree = "<group>"; };
+		F19C74C81B5B16E2001BC031 /* Guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Guest.m; path = Model/Guest.m; sourceTree = "<group>"; };
 		F1A6AD3A1B597051005C4645 /* ListOfPartiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfPartiesTableViewController.h; path = Controller/ListOfPartiesTableViewController.h; sourceTree = "<group>"; };
 		F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfPartiesTableViewController.m; path = Controller/ListOfPartiesTableViewController.m; sourceTree = "<group>"; };
 		F1A6AD3D1B5970B8005C4645 /* PartyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyDetailsViewController.h; path = Controller/PartyDetailsViewController.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				F1A6AD401B597456005C4645 /* Party.h */,
 				F1A6AD411B597456005C4645 /* Party.m */,
+				F19C74C71B5B16E2001BC031 /* Guest.h */,
+				F19C74C81B5B16E2001BC031 /* Guest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 			files = (
 				F1A6AD421B597456005C4645 /* Party.m in Sources */,
 				F1B411181B5961BB00C676E6 /* AppDelegate.m in Sources */,
+				F19C74C91B5B16E2001BC031 /* Guest.m in Sources */,
 				F142ADB11B59B80F00CCD53F /* GuestTableViewController.m in Sources */,
 				F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */,
 				F1A6AD3C1B597051005C4645 /* ListOfPartiesTableViewController.m in Sources */,

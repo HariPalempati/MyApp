@@ -10,4 +10,7 @@
 
 @interface GuestTableViewController : UITableViewController
 
+@property (strong) NSMutableArray * guests;
+@property (weak, nonatomic) IBOutlet UILabel *labelGuest;
+
 @end

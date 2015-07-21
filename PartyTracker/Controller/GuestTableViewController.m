@@ -7,12 +7,25 @@
 //
 
 #import "GuestTableViewController.h"
+#import "AppDelegate.h"
+#import "PartyDetailsViewController.h"
 
 @interface GuestTableViewController ()
+@property (nonatomic , copy) PartyDetailsViewController * aReference;
 
 @end
 
 @implementation GuestTableViewController
+@synthesize aReference = _aReference;
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +37,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the parties from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Guest"];
+    self.guests = [[managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -32,26 +58,32 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.guests.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    NSManagedObject * managedObject = [self.aReference.Guests objectAtIndex:indexPath.row];
+    //[cell.textLabel setText:[NSString stringWithFormat:@"%@ ", [managedObject valueForKey:@"guestName"]]];
+    
+    //[cell.textLabel setText:[_guests objectAtIndex:indexPath.row] ]
+    
+    cell.textLabel.text = @"Hari";
     return cell;
+    
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
