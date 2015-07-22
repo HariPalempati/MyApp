@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FBLoginViewController.h"
+#import "Party.h"
+#import "Guest.h"
+#import "GuestTableViewController.h"
 
 @interface Friends : UIViewController<UITableViewDelegate,UITableViewDataSource> {
     
@@ -43,7 +46,11 @@ typedef void (^FriendsCallbackError)(NSString *errorString);
 
 //@property (strong, nonatomic)NSMutableArray * friendsArray;
 
-//@property (nonatomic, copy) ViewController *aReference;
+@property (nonatomic, copy) GuestTableViewController *aReference;
+
+@property (strong , nonatomic) NSMutableArray * guests;
+
+@property (strong) NSManagedObject * guest;
 
 @end
 

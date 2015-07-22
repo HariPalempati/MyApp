@@ -13,6 +13,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "GuestTableViewController.h"
 
 @interface Friends ()
 {
@@ -24,7 +25,18 @@
 
 @implementation Friends
 
-//@synthesize aReference = _aReference;
+@synthesize aReference = _aReference;
+
+//@synthesize aReference1 = _aReference1;
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -240,6 +252,57 @@
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath; {
+
+    UITableViewCell *selectedCell=[tableView cellForRowAtIndexPath:indexPath];
+    
+    NSLog(@"friend selected is %@", [selectedCell text]);
+    
+    _guests = [[NSMutableArray alloc]init];
+    [_guests addObject:[selectedCell text]];
+    
+    NSLog(@"Guests Count: %lu",(unsigned long)[_guests count]);
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (self.guests) {
+        
+        NSLog(@"setting existing guest");
+        [self.aReference.labelGuest setText:[self.guest valueForKey:@"guestName"]];
+        //        [self.textName setText:[self.party valueForKey:@"partyName"]];
+        //        [self.textTime setText:[self.party valueForKey:@"partyTime"]];
+        //        [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];
+        //        //[self.labelGuests setText:[self.party valueForKey:@"partyGuests"]];
+        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+    }
+    else {
+        
+        // Create a new managed object
+        NSManagedObject * managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:context];
+        [managedObject setValue:self.aReference.labelGuest.text forKey:@"guestName"];
+        //        [managedObject setValue:self.textName.text forKey:@"partyName"];
+        //        [managedObject setValue:self.textTime.text forKey:@"partyTime"];
+        //        [managedObject setValue:self.textLocation.text forKey:@"partyLocation"];
+        // [managedObject setValue:self.labelGuests forKey:@"partyGuests"];
+        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+        // [managedObject setValue:[NSString stringWithFormat:@"%f", stepValue ] forKey:@"partyGuests"];
+        
+    }
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    NSLog(@"dismiss reached");
+    
+    GuestTableViewController * gc = [[GuestTableViewController alloc]init];
+    
+    [self.navigationController pushViewController:gc animated:YES];
+
+    
+   // [friendsArray valueForKey:@"username"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

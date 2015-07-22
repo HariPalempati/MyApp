@@ -161,7 +161,7 @@
     if (self.guest) {
         
         NSLog(@"setting existing guest");
-        [self.aReference1.labelGuest setText:[self.party valueForKey:@"guestName"]];
+        [self.aReference1.labelGuest setText:[self.guest valueForKey:@"guestName"]];
 //        [self.textName setText:[self.party valueForKey:@"partyName"]];
 //        [self.textTime setText:[self.party valueForKey:@"partyTime"]];
 //        [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];

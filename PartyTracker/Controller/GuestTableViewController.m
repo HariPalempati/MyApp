@@ -79,7 +79,7 @@
     
     //[cell.textLabel setText:[_guests objectAtIndex:indexPath.row] ]
     
-    cell.textLabel.text = @"Hari";
+    //cell.textLabel.text = @"Hari";
     return cell;
     
 }
