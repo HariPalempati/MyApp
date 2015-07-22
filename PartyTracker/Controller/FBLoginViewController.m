@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+//#import "Friends.h"
 
 @interface FBLoginViewController () {
     
@@ -19,7 +20,7 @@
     FBProfilePictureView * profilePicture;
     UILabel * labelUsername;
     UILabel * labelEmail;
-    UIButton * Friends;
+    UIButton * friends;
 }
 
 @end
@@ -37,7 +38,7 @@
 //    [self toggleHiddenState:YES];
 ////    self.labelLoginStatus.text = @"";
 //    
-//    self->loginButton.readPermissions = @[@"public_profile", @"email"];
+    self->loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
     loginButton = [[FBLoginView alloc] initWithFrame:CGRectMake(100, 430, 200, 50)];
     //loginButton.center = self.view.center;
@@ -64,12 +65,13 @@
     //[labelEmail setText:@"email"];
     [labelEmail setTextAlignment:NSTextAlignmentCenter];
     
-    Friends = [[UIButton alloc]initWithFrame:CGRectMake(50, 330, 280, 25)];
-    [Friends setTitle:@"Get Friends" forState:UIControlStateNormal];
-    [Friends setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [self.view addSubview:Friends];
+    friends = [[UIButton alloc]initWithFrame:CGRectMake(50, 330, 280, 25)];
+    [friends setTitle:@"Get Friends" forState:UIControlStateNormal];
+    [friends setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [friends addTarget:self action:@selector(getFriends) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:friends];
     
-    [self toggleHiddenState:YES];
+    [self HiddenState:YES];
     
     self->loginButton.readPermissions = @[@"public_profile", @"email"];
     
@@ -79,12 +81,107 @@
     
 }
 
--(void)toggleHiddenState:(BOOL)shouldHide{
+//-(void)getFriendsListWithCompleteBlock:(void (^)(NSArray *, NSString *))completed{
+//    
+//    if (!FBSession.activeSession.isOpen)
+//    {
+//        NSLog(@"permissions::%@",FBSession.activeSession.permissions);
+//        
+//        // if the session is closed, then we open it here, and establish a handler for state changes
+//        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"user_friends"]
+//                                           allowLoginUI:YES
+//                                      completionHandler:^(FBSession *session,
+//                                                          FBSessionState state,
+//                                                          NSError *error) {
+//                                          if (error)
+//                                          {
+//                                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                                                                  message:error.localizedDescription
+//                                                                                                 delegate:nil
+//                                                                                        cancelButtonTitle:@"OK"
+//                                                                                        otherButtonTitles:nil];
+//                                              [alertView show];
+//                                          }
+//                                          else if (session.isOpen)
+//                                          {
+//                                             // [self showWithStatus:@""];
+//                                              FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=name,picture,gender"];
+//                                              
+//                                              
+//                                              [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//                                                  NSArray *data = [result objectForKey:@"data"];
+//                                                  NSMutableArray *friendsList = [[NSMutableArray alloc] init];
+//                                                  for (FBGraphObject<FBGraphUser> *friend in data)
+//                                                  {
+//                                                      //NSLog(@"friend:%@", friend);
+//                                                      NSDictionary *picture = [friend objectForKey:@"picture"];
+//                                                      NSDictionary *pictureData = [picture objectForKey:@"data"];
+//                                                      //NSLog(@"picture:%@", picture);
+//                                                      NSData *fb = [[NSData alloc]initWithData:(NSString *)[friend objectForKey:@"name"]
+//                                                                    userID:(NSInteger)[[friend objectForKey:@"id"] integerValue]
+//                                                                    gender:(NSString*)[friend objectForKey:@"gender"]
+//                                                                    photoURL:(NSString*)[pictureData objectForKey:@"url"]
+//                                                                    photo:(UIImage*)nil
+//                                                                    isPhotoDownloaded:(BOOL)NO];
+//                                                      [friendsList addObject:fb];
+//                                                  }
+//                                                  
+//                                                //  [self dismissStatus];
+//                                                  if (completed) {
+//                                                      completed(friendsList,@"I got it");
+//                                                  }
+//                                              }];
+//                                              
+//                                              
+//                                          }
+//                                      }];
+//    }
+//}
+
+- (void)getFriends {
+    
+//    FBFriendPickerViewController * fp = [[FBFriendPickerViewController alloc]init];
+//    [fp loadData];
+//    [fp presentModallyFromViewController:self animated:YES handler:^ (FBViewController * sender, BOOL donePressed) {
+//        if (donePressed) {
+//            self.friends = fp.selection;
+//            NSLog(@"Success");
+//        }
+//    }];
+    
+//    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+//    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+//                                                  NSDictionary* result,
+//                                                  NSError *error) {
+//        NSArray* friends = [result objectForKey:@"data"];
+//        NSLog(@"Found: %lu friends", (unsigned long)friends.count);
+//        for (NSDictionary<FBGraphUser>* friend in friends) {
+//            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//        }
+//    }];
+    
+//    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+//                                  initWithGraphPath:@"/{friendlist-id}"
+//                                  parameters:params
+//                                  HTTPMethod:@"GET"];
+//    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+//                                          id result,
+//                                          NSError *error) {
+//        // Handle the result
+//    }];
+    
+//    Friends * f = [[Friends alloc]init];
+//    [self.navigationController pushViewController:f animated:YES];
+//    
+    NSLog(@"friends");
+}
+
+-(void) HiddenState:(BOOL)shouldHide{
 
     labelUsername.hidden = shouldHide;
     labelEmail.hidden = shouldHide;
     profilePicture.hidden = shouldHide;
-    Friends.hidden = shouldHide;
+    friends.hidden = shouldHide;
 //    self.labelUsername.hidden = shouldHide;
 //    self.labelEmail.hidden = shouldHide;
 //    self.profilePicture.hidden = shouldHide;
@@ -94,7 +191,7 @@
   
     labelLoginStatus.text = @"You are logged in.";
     
-    [self toggleHiddenState:NO];
+    [self HiddenState:NO];
     
     NSLog(@"Login");
 }
@@ -116,7 +213,7 @@
     
     NSLog(@"Logout");
     
-    [self toggleHiddenState:YES];
+    [self HiddenState:YES];
 }
 
 -(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error{

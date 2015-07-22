@@ -20,6 +20,9 @@
 		F19C765C1B5E0341001BC031 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C76581B5E0341001BC031 /* FBSDKShareKit.framework */; };
 		F19C77F11B5E0B07001BC031 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */; };
 		F19C77F31B5E0E95001BC031 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */; };
+		F19C77F51B5EF905001BC031 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C77F41B5EF905001BC031 /* Accounts.framework */; };
+		F19C77F71B5EF90E001BC031 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C77F61B5EF90E001BC031 /* Social.framework */; };
+		F19C77FB1B5F11B1001BC031 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = F19C77FA1B5F11B1001BC031 /* Friends.m */; };
 		F1A6AD3C1B597051005C4645 /* ListOfPartiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */; };
 		F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD3E1B5970B8005C4645 /* PartyDetailsViewController.m */; };
 		F1A6AD421B597456005C4645 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A6AD411B597456005C4645 /* Party.m */; };
@@ -59,6 +62,10 @@
 		F19C77EF1B5E0B07001BC031 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLoginViewController.h; path = Controller/FBLoginViewController.h; sourceTree = "<group>"; };
 		F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLoginViewController.m; path = Controller/FBLoginViewController.m; sourceTree = "<group>"; };
 		F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		F19C77F41B5EF905001BC031 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		F19C77F61B5EF90E001BC031 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F19C77F91B5F11B1001BC031 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Friends.h; path = Controller/Friends.h; sourceTree = "<group>"; };
+		F19C77FA1B5F11B1001BC031 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Friends.m; path = Controller/Friends.m; sourceTree = "<group>"; };
 		F1A6AD3A1B597051005C4645 /* ListOfPartiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfPartiesTableViewController.h; path = Controller/ListOfPartiesTableViewController.h; sourceTree = "<group>"; };
 		F1A6AD3B1B597051005C4645 /* ListOfPartiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfPartiesTableViewController.m; path = Controller/ListOfPartiesTableViewController.m; sourceTree = "<group>"; };
 		F1A6AD3D1B5970B8005C4645 /* PartyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyDetailsViewController.h; path = Controller/PartyDetailsViewController.h; sourceTree = "<group>"; };
@@ -84,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19C77F71B5EF90E001BC031 /* Social.framework in Frameworks */,
+				F19C77F51B5EF905001BC031 /* Accounts.framework in Frameworks */,
 				F142ADAE1B59B74800CCD53F /* Foundation.framework in Frameworks */,
 				F19C77F31B5E0E95001BC031 /* FacebookSDK.framework in Frameworks */,
 				F19C76591B5E0341001BC031 /* FBSDKCoreKit.framework in Frameworks */,
@@ -107,9 +116,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F1B411061B5961BA00C676E6 = {
+		F19C77F81B5EF958001BC031 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F19C77F61B5EF90E001BC031 /* Social.framework */,
+				F19C77F41B5EF905001BC031 /* Accounts.framework */,
 				F19C77F21B5E0E95001BC031 /* FacebookSDK.framework */,
 				F142ADAD1B59B74800CCD53F /* Foundation.framework */,
 				F142ADA91B59B34900CCD53F /* CoreData.framework */,
@@ -120,7 +131,15 @@
 				F19C76561B5E0341001BC031 /* FBSDKLoginKit.framework */,
 				F19C76571B5E0341001BC031 /* FBSDKMessengerShareKit.framework */,
 				F19C76581B5E0341001BC031 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1B411061B5961BA00C676E6 = {
+			isa = PBXGroup;
+			children = (
 				F1B411111B5961BA00C676E6 /* PartyTracker */,
+				F19C77F81B5EF958001BC031 /* Frameworks */,
 				F1B411311B5961BB00C676E6 /* PartyTrackerTests */,
 				F1B411101B5961BA00C676E6 /* Products */,
 			);
@@ -199,6 +218,8 @@
 				F142ADB01B59B80F00CCD53F /* GuestTableViewController.m */,
 				F19C77EF1B5E0B07001BC031 /* FBLoginViewController.h */,
 				F19C77F01B5E0B07001BC031 /* FBLoginViewController.m */,
+				F19C77F91B5F11B1001BC031 /* Friends.h */,
+				F19C77FA1B5F11B1001BC031 /* Friends.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +335,7 @@
 				F1A6AD421B597456005C4645 /* Party.m in Sources */,
 				F1B411181B5961BB00C676E6 /* AppDelegate.m in Sources */,
 				F19C74C91B5B16E2001BC031 /* Guest.m in Sources */,
+				F19C77FB1B5F11B1001BC031 /* Friends.m in Sources */,
 				F142ADB11B59B80F00CCD53F /* GuestTableViewController.m in Sources */,
 				F1A6AD3F1B5970B8005C4645 /* PartyDetailsViewController.m in Sources */,
 				F19C77F11B5E0B07001BC031 /* FBLoginViewController.m in Sources */,
