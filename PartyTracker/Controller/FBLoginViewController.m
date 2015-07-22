@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-//#import "Friends.h"
+#import "Friends.h"
 
 @interface FBLoginViewController () {
     
@@ -170,9 +170,9 @@
 //        // Handle the result
 //    }];
     
-//    Friends * f = [[Friends alloc]init];
-//    [self.navigationController pushViewController:f animated:YES];
-//    
+    Friends * f = [[Friends alloc]init];
+    [self.navigationController pushViewController:f animated:YES];
+    
     NSLog(@"friends");
 }
 
