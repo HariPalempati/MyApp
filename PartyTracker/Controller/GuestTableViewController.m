@@ -70,16 +70,27 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
-    NSManagedObject * managedObject = [self.aReference.Guests objectAtIndex:indexPath.row];
-    //[cell.textLabel setText:[NSString stringWithFormat:@"%@ ", [managedObject valueForKey:@"guestName"]]];
+//    NSManagedObject * managedObject = [self.aReference.Guests objectAtIndex:indexPath.row];
+//    //[cell.textLabel setText:[NSString stringWithFormat:@"%@ ", [managedObject valueForKey:@"guestName"]]];
+//    
+//    //[cell.textLabel setText:[_guests objectAtIndex:indexPath.row] ]
+//    
+//    //cell.textLabel.text = @"Hari";
+//    return cell;
     
-    //[cell.textLabel setText:[_guests objectAtIndex:indexPath.row] ]
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    }
     
-    //cell.textLabel.text = @"Hari";
+    NSDictionary * dict = [_aReference.Guests objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dict objectForKey:@"name"];
+    cell.detailTextLabel.text = [dict objectForKey:@"number"];
+    
     return cell;
     
 }

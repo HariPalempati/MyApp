@@ -146,48 +146,69 @@
 }
 
 // Called after a person has been selected by the user.
-- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person NS_AVAILABLE_IOS(8_0){
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier NS_AVAILABLE_IOS(8_0) {
  
-    NSString * name = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    NSLog(@"Name Selected is %@", name);
-    
-    _Guests = [[NSMutableArray alloc]init];
-    [_Guests addObject:name];
-    
-    NSLog(@"Guests Count: %lu",(unsigned long)[_Guests count]);
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if (self.guest) {
-        
-        NSLog(@"setting existing guest");
-        [self.aReference1.labelGuest setText:[self.guest valueForKey:@"guestName"]];
-//        [self.textName setText:[self.party valueForKey:@"partyName"]];
-//        [self.textTime setText:[self.party valueForKey:@"partyTime"]];
-//        [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];
-//        //[self.labelGuests setText:[self.party valueForKey:@"partyGuests"]];
-        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
-    }
-    else {
-        
-        // Create a new managed object
-        NSManagedObject * managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:context];
-        [managedObject setValue:self.aReference1.labelGuest.text forKey:@"guestName"];
-//        [managedObject setValue:self.textName.text forKey:@"partyName"];
-//        [managedObject setValue:self.textTime.text forKey:@"partyTime"];
-//        [managedObject setValue:self.textLocation.text forKey:@"partyLocation"];
-        // [managedObject setValue:self.labelGuests forKey:@"partyGuests"];
-        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
-        // [managedObject setValue:[NSString stringWithFormat:@"%f", stepValue ] forKey:@"partyGuests"];
-        
-    }
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
+//    NSString * name = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+//    NSLog(@"Name Selected is %@", name);
+//    
+//    _Guests = [[NSMutableArray alloc]init];
+//    [_Guests addObject:name];
+//    
+//    NSLog(@"Guests Count: %lu",(unsigned long)[_Guests count]);
+//    
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    if (self.guest) {
+//        
+//        NSLog(@"setting existing guest");
+//        [self.aReference1.labelGuest setText:[self.guest valueForKey:@"guestName"]];
+////        [self.textName setText:[self.party valueForKey:@"partyName"]];
+////        [self.textTime setText:[self.party valueForKey:@"partyTime"]];
+////        [self.textLocation setText:[self.party valueForKey:@"partyLocation"]];
+////        //[self.labelGuests setText:[self.party valueForKey:@"partyGuests"]];
+//        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+//    }
+//    else {
+//        
+//        // Create a new managed object
+//        NSManagedObject * managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:context];
+//        [managedObject setValue:self.aReference1.labelGuest.text forKey:@"guestName"];
+////        [managedObject setValue:self.textName.text forKey:@"partyName"];
+////        [managedObject setValue:self.textTime.text forKey:@"partyTime"];
+////        [managedObject setValue:self.textLocation.text forKey:@"partyLocation"];
+//        // [managedObject setValue:self.labelGuests forKey:@"partyGuests"];
+//        //[self.labelGuests setText:[NSString stringWithFormat:@"%f", stepValue]];
+//        // [managedObject setValue:[NSString stringWithFormat:@"%f", stepValue ] forKey:@"partyGuests"];
+//        
+//    }
+//    NSError *error = nil;
+//    // Save the object to persistent store
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//    }
+//    
     NSLog(@"dismiss reached");
+    
+    
+    if (property == kABPersonPhoneProperty)
+    {
+        NSString * firstname = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        NSString * lasttname = (__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+        
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        
+        NSString * mobile = (__bridge NSString *)(ABMultiValueCopyValueAtIndex(phoneNumbers, identifier));
+        
+        NSMutableDictionary * objDict = [[NSMutableDictionary alloc]init];
+        [objDict setObject:[NSString stringWithFormat:@"%@ %@",firstname,lasttname] forKey:@"name"];
+        
+        [objDict setObject:mobile forKey:@"number"];
+        
+        [_Guests addObject:objDict];
+        
+        
+    }
+    
     
     GuestTableViewController * gc = [[GuestTableViewController alloc]init];
     
@@ -196,9 +217,6 @@
 }
 
 // Called after a property has been selected by the user.
-- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier NS_AVAILABLE_IOS(8_0){
-    
-}
 
 // Called after the user has pressed cancel.
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
