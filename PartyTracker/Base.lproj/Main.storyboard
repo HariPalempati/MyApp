@@ -232,7 +232,7 @@
                                     <constraint firstAttribute="height" constant="50" id="wDF-Q4-JRu"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LonStatusgi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAQ-zI-mYr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAQ-zI-mYr">
                                 <rect key="frame" x="20" y="32" width="280" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="kU2-1m-BDC"/>
@@ -336,6 +336,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="labelGuest" destination="O1I-yR-DFI" id="F8c-Es-yys"/>
+                        <outlet property="tableView" destination="uQf-pP-3bf" id="bAF-qx-4gN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fuf-87-cky" userLabel="First Responder" sceneMemberID="firstResponder"/>

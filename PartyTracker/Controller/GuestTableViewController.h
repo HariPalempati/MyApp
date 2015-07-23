@@ -12,5 +12,6 @@
 
 @property (strong) NSMutableArray * guests;
 @property (weak, nonatomic) IBOutlet UILabel *labelGuest;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

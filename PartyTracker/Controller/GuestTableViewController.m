@@ -35,6 +35,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -48,6 +50,7 @@
     self.guests = [[managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
     
     [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +92,12 @@
     
     NSDictionary * dict = [_aReference.Guests objectAtIndex:indexPath.row];
     cell.textLabel.text = [dict objectForKey:@"name"];
+    //cell.textLabel.text = [dict valueForKey:@"name"];
+    cell.textLabel.text = @"Hari";
     cell.detailTextLabel.text = [dict objectForKey:@"number"];
+    
+    //[self.tableView reloadData];
+   // [tableView reloadData];
     
     return cell;
     

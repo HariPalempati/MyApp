@@ -206,6 +206,11 @@
         
         [_Guests addObject:objDict];
         
+   //     [GuestTableViewController._]
+        
+        NSLog(@"selected object is: %@", objDict);
+        
+        
         
     }
     
