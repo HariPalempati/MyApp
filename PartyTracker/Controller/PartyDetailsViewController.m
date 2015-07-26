@@ -208,6 +208,8 @@
         
    //     [GuestTableViewController._]
         
+      //  [UITableView ]
+        //table view reload
         NSLog(@"selected object is: %@", objDict);
         
         
